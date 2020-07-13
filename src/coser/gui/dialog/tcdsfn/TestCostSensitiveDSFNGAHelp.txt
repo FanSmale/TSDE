@@ -1,0 +1,15 @@
+@Author Shujiao Liao 12/21/2011, Zhangzhou, Fujian 363000
+-----Usage-----
+Test Cost Decision System based on Neighborhood rough set and Genetic algorithm
+
+-----Input-----
+The .arff file: Now coser/data/irisNormalized.arff is the default value. And we provide other .arff files under the folder coser/data.
+
+You can choose other .arff file. However, there are a number of notes to make. 
+
+
+----Source----
+The source file for this dialog is coser\gui\dialog\tcdsnh\TestCostDSNHGADialog.java
+
+The relevant paper has not been written. 
+

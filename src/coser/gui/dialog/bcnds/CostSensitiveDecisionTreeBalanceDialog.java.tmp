@@ -1,0 +1,251 @@
+
+package coser.gui.dialog.bcsds;
+
+import java.io.*;
+import java.lang.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.util.*;
+import javax.swing.*;
+
+import coser.common.*;
+import coser.datamodel.decisionsystem.*;
+import coser.project.*;
+import coser.classifiers.trees.*;
+
+import coser.gui.guicommon.*;
+import coser.gui.others.*;
+import coser.gui.dialog.common.*;
+import coser.gui.menu.*;
+
+import weka.classifiers.trees.Id3;
+
+/**
+ Project:          The cost-sensitive rough sets project. <p>
+ Summary:          The cost-sensitive decision tree dialog.
+                   Compare with the class blance approach.<p>
+ Author:           <b>Fan Min</b> minfanphd@163.com <br>
+ Copyright:        The source code and all documents are open and free. PLEASE keep
+                    this header while revising the program. <br>
+ Organizaion:      <a href=http://grc.fjzs.edu.cn/>Lab of Granular Computing</a>,
+                    Zhangzhou Normal University, Fujian 363000, China.<br>
+ Progress:         The beginning.<br>
+ Written time:     Febuary 1, 2011. <br>
+ Last modify time: Febuary 1, 2012.
+ */
+public class CostSensitiveDecisionTreeBalanceDialog extends Dialog implements ActionListener{
+   public static CostSensitiveDecisionTreeBalanceDialog costSensitiveDecisionTreeBalanceDialog = new CostSensitiveDecisionTreeBalanceDialog();
+
+  /**
+   Testing strategy.
+   */
+   private JComboBox testStrategyComboBox;
+
+  /**
+   Labmda lower bound.
+   */
+   private DoubleField lambdaLowerBoundField;
+   
+  /**
+   Labmda upper bound.
+   */
+   private DoubleField lambdaUpperBoundField;
+   
+  /**
+   Labmda step length.
+   */
+   private DoubleField lambdaStepLengthField;
+
+  /**
+   Omega step length.
+   */
+   private DoubleField omegaStepLengthField;
+
+  /**
+   Prune strategy.
+   */
+   private JComboBox pruneStrategyComboBox;
+
+  /**
+   Training set percentage.
+   */
+   private DoubleField trainingPercentageField;
+	
+  /**
+   Number of folds.
+   */
+	private IntegerField cvFoldsField;
+   
+  /**
+   Show detail.
+   private Checkbox showDetailCheckbox;
+   */
+
+  /**
+   Number of experiments.
+   */
+	private IntegerField experimentsField;
+
+  /**
+   The text area to show results.
+   */
+   private TextArea resultArea;
+	
+  /**
+   ***************************
+   * The only constructor.
+   ***************************
+   */
+   private CostSensitiveDecisionTreeBalanceDialog(){
+      //This dialog is not module
+      super(GUICommon.mainFrame, "Cost-sensitive decision tree, lambda comparison", true);
+
+      int testStrategy             = 1;
+		String[] testStrategies      = {"Use training set", "Split in two", "Cross validation"};
+      testStrategyComboBox         = new JComboBox(testStrategies);
+      testStrategyComboBox.setSelectedIndex(testStrategy);
+		
+      lambdaLowerBoundField        = new DoubleField("-2");
+      lambdaUpperBoundField        = new DoubleField("0");
+      lambdaStepLengthField        = new DoubleField("0.5");
+      omegaStepLengthField         = new DoubleField("0.2");
+		
+      String[] pruneStrategies     = {"No", "Pre-prune", "Post-prune"};
+      pruneStrategyComboBox        = new JComboBox(pruneStrategies);
+      pruneStrategyComboBox.setSelectedIndex(0);
+		
+      trainingPercentageField      = new DoubleField("0.6");
+      cvFoldsField                 = new IntegerField("3");
+//		showDetailCheckbox           = new Checkbox("Show running detail", false);
+		experimentsField             = new IntegerField("5");
+
+      Panel centerPanel = new Panel();
+      centerPanel.setLayout(new GridLayout(9, 2));
+      centerPanel.add(new Label("Test stragegy: "));
+      centerPanel.add(testStrategyComboBox);
+      centerPanel.add(new Label("Lambda upper bound: (valid for weighting)"));
+      centerPanel.add(lambdaUpperBoundField);
+      centerPanel.add(new Label("Lambda lower bound : "));
+      centerPanel.add(lambdaLowerBoundField);
+      centerPanel.add(new Label("Lambda step length: "));
+      centerPanel.add(lambdaStepLengthField);
+      centerPanel.add(new Label("Omega step length: "));
+      centerPanel.add(omegaStepLengthField);
+		centerPanel.add(new Label("Prune strategy: "));
+      centerPanel.add(pruneStrategyComboBox);
+      centerPanel.add(new Label("Training set percentage: "));
+      centerPanel.add(trainingPercentageField);
+      centerPanel.add(new Label("Number of folds: "));
+      centerPanel.add(cvFoldsField);
+		centerPanel.add(new Label("Number of experiments"));
+		centerPanel.add(experimentsField);
+//		centerPanel.add(showDetailCheckbox);
+		
+		resultArea = new TextArea(10, 10);
+		resultArea.setText("");
+
+      Panel mainPanel = new Panel();
+		mainPanel.setLayout(new BorderLayout());
+      mainPanel.add(BorderLayout.CENTER, centerPanel);
+      mainPanel.add(BorderLayout.SOUTH, resultArea);
+
+      Button okButton = new Button(" Build ");
+      okButton.addActionListener(this);
+      DialogCloser dialogCloser = new DialogCloser(this);
+      Button cancelButton = new Button(" Cancel ");
+      cancelButton.addActionListener(dialogCloser);
+      Button helpButton = new Button(" Help ");
+      helpButton.setSize(20, 10);
+      helpButton.addActionListener(new HelpDialog("Cost-sensitive decision tree",
+         "coser/gui/dialog/bcsds/CostSensitiveDecisionTreeHelp.txt"));
+      Panel okPanel = new Panel();
+      okPanel.add(okButton);
+      okPanel.add(cancelButton);
+      okPanel.add(helpButton);
+
+      setLayout(new BorderLayout());
+      add(BorderLayout.CENTER, mainPanel);
+      add(BorderLayout.SOUTH, okPanel);
+
+      setBackground(GUICommon.MY_COLOR);
+      setLocation(200, 200);
+      setSize(420, 470);
+      addWindowListener(dialogCloser);
+      setVisible(false);
+   }//Of constructor
+
+  /**
+   ***************************
+   * Build the tree.
+   ***************************
+   */
+   public void actionPerformed(ActionEvent ae){
+      //setVisible(false);
+      //ProgressDialog.progressDialog.setMessageAndShow("Please wait a few seconds. Setting ... \r\n");
+      BothCostSensitiveDecisionSystem currentDs = CoserProject.currentProject.currentBcsDs;
+
+      int testStrategy          = testStrategyComboBox.getSelectedIndex();
+      double lambdaUpperBound   = lambdaUpperBoundField.getValue();
+      double lambdaLowerBound   = lambdaLowerBoundField.getValue();
+      double lambdaStepLength   = lambdaStepLengthField.getValue();
+      double omegaStepLength    = omegaStepLengthField.getValue();
+      int pruneStrategy         = pruneStrategyComboBox.getSelectedIndex();
+		double trainingPercentage = trainingPercentageField.getValue();
+
+		
+		int numberOfLambdas = 1 + (int)((lambdaUpperBound - lambdaLowerBound) / lambdaStepLength);
+		int numberOfOmegas  = 1 + (int)(1 / omegaStepLength);
+		int cvFolds         = cvFoldsField.getValue();
+		BuildAndTestTree buildAndTestTree = new BuildAndTestTree(currentDs,
+		                                                         trainingPercentage,
+															                  testStrategy,
+															                  numberOfLambdas,
+																					numberOfOmegas,
+															                  cvFolds,
+																					false,
+																					false);
+		resultArea.setText("");
+		int numberOfExperiments = experimentsField.getValue();
+
+      try {
+		   for (int i = 0; i < numberOfExperiments; i ++) {
+		      String tempResult = buildAndTestTree.oneRunAllLambdas(lambdaLowerBound,
+		                                                            lambdaUpperBound,
+																				      lambdaStepLength,
+																				      omegaStepLength,
+																						false);
+if (testStrategy == 1)
+   System.out.println();
+			   resultArea.append(" \t" + tempResult);
+			   buildAndTestTree.refreshTestCost();
+			}//Of for i
+			
+			resultArea.append("\r\n*******Summary************\r\n");
+			resultArea.append("lambda\t");
+		   for (double tempLambda = lambdaLowerBound; tempLambda <= lambdaUpperBound;
+		   	   tempLambda += lambdaStepLength) {
+			   resultArea.append("" + tempLambda + "\t");
+			}//Of for
+		   resultArea.append("cost-gain\tbest-in-training\r\n");
+
+			resultArea.append("Win times\t");
+			int[] algorithmWinsArray = buildAndTestTree.getAlgorithmWinsArray();
+		   for (int i = 0; i < algorithmWinsArray.length; i ++) {
+			   resultArea.append("" + algorithmWinsArray[i] + "\t");
+			}//Of for
+			resultArea.append("\r\n");
+
+			resultArea.append("Averagte cost\t");
+			double[] costSumArray     = buildAndTestTree.getCostSumArray();
+		   for (int i = 0; i < costSumArray.length; i ++) {
+				   resultArea.append("" + SimpleTool.shorterDouble(costSumArray[i]/numberOfExperiments) + "\t");
+			}//Of for
+			resultArea.append("\r\n");
+      } catch (Exception ee){
+         ErrorDialog.errorDialog.setMessageAndShow(ee.toString());
+         ProgressDialog.progressDialog.setVisible(false);
+      }//Of try
+      //ProgressDialog.progressDialog.setVisible(false);
+   }//Of actionPerformed
+
+}//Of class CostSensitiveDecisionTreeBalanceDialog

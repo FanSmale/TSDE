@@ -1,0 +1,18 @@
+@Author He Xu 09/23/2012, Zhangzhou, Fujian 363000
+-----Usage-----
+Normalize data. The source arff file can contain any data. After discretization, all attributes except the first one are discretized.
+
+-----Input-----
+You can choose other .arff file. However, there are a number of notes to make. 
+
+
+----Source----
+The source file for this dialog is coser\gui\dialog\numericis\discretizationDialog.java
+
+----Paper or report----
+@ARTICLE{
+  author = {Xu He},
+  title = {Test-Cost-Sensitive Attribute Reduction Based on Neighborhood Rough Set},
+  journal = {GRC2012},
+  year = {2012}
+}

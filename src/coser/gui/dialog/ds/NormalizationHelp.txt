@@ -1,0 +1,18 @@
+@Author Hong Zhao 06/29/2011, Zhangzhou, Fujian 363000
+-----Usage-----
+Normalize data. The source arff file can contain any data. After normalization, all attributes except the last one are normalized.
+
+-----Input-----
+You can choose other .arff file. However, there are a number of notes to make. 
+
+
+----Source----
+The source file for this dialog is coser\gui\dialog\ds\NormalizationDialog.java
+
+----Paper or report----
+@ARTICLE{
+  author = {Hong Zhao, Fan Min},
+  title = {Test-Cost-Sensitive Attribute Reduction Based on Neighborhood Rough Set},
+  journal = {GRC2011},
+  year = {2011}
+}

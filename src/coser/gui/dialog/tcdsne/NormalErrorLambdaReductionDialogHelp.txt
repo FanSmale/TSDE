@@ -1,0 +1,22 @@
+@Author HongZhao 08/23/2012, Zhangzhou, Fujian 363000
+-----Usage-----
+Find a (possibly) minimal test reducts of the decision system using a heuristic algorithm.
+
+-----Input-----
+Weighting mode: Unweighting - using information gain directly. Weighting - using weighted information gain.
+Lambda upper bound: The upper bound of the Lambda value. There are different settings of lambda, such that we get to know which setting is the best.
+Lambda lower bound: See the upper bound.
+Lambda step length: In conjunction with lower and upper bounds.
+Number of experiments: Decide different test cost settings. This is equivalently to dealing with a number of different datasets.
+
+
+----Source----
+The source file for this dialog is coser\gui\dialog\tcdsndme\NDMELambdaReductionDialog.java.
+
+----Paper or report----
+@ARTICLE{,
+  author = {Hong Zhao, Fan Min and William Zhu},
+  title = {Test-cost-sensitive attribute reduction of data with normal distribution measurement errors},
+  journal = {Submitted to Applied Mathematics & Information Sciences}
+  year = {2012}
+}

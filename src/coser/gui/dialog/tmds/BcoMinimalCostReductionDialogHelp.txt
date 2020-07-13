@@ -1,0 +1,15 @@
+@Author Zilong Xu 07/08/2012, Zhangzhou, Fujian 363000
+----Usage----
+Find a (possibly) minimal test cost reduct of the decision system using the ant colony optimization.
+
+----Input----
+Ant couts: the number of ants in the ant colony
+Alpha: the parameter, the exponentof the pheromone
+Beta: the parmeter, the exponent of the test cost
+
+----Source----
+The source file for this dialog is coser\gui\dialog\tcnds\MinimalTestCostReductionDialog.java
+
+
+----Paper or reporter----
+Ant colony optimization to the minimal test cost reduction

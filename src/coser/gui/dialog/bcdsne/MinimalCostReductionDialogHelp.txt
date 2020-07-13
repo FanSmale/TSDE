@@ -1,0 +1,23 @@
+@Author Fan Min 09/05/2011, Zhangzhou, Fujian 363000
+-----Usage-----
+Minimal average cost reduction.
+
+-----Input-----
+Misclassification cost lower bound: the lower bound of the misclassification. The default value is 10.
+
+Misclassification cost upper bound: the upper bound of the misclassification. The default value is 200.
+
+Cost step length: the step length of misclassification costs. The default value is 100.
+
+----Source----
+The source file for this dialog is coser\gui\dialog\bcuds\MinimalCostNumericReductionDialog.java.
+
+----Paper or report----
+
+@INPROCEEDINGS{MinZhu11MinimalCost,
+  author = {Hong zhao, Fan Min and William Zhu},
+  title = {Minimal cost feature selection of data with error range},
+  booktitle = {},
+  year = {2012},
+  section = {}
+}

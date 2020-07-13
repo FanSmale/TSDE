@@ -1,0 +1,194 @@
+package coser.gui.dialog.tmds;
+
+import java.awt.BorderLayout;
+import java.awt.Button;
+import java.awt.Dialog;
+import java.awt.GridLayout;
+import java.awt.Label;
+import java.awt.Panel;
+import java.awt.event.ActionListener;
+
+import javax.swing.JFrame;
+
+import coser.common.SimpleTool;
+import coser.datamodel.decisionsystem.*;
+import coser.gui.dialog.common.DialogCloser;
+import coser.gui.dialog.common.ErrorDialog;
+import coser.gui.dialog.common.HelpDialog;
+import coser.gui.dialog.common.ProgressDialog;
+import coser.gui.guicommon.GUICommon;
+import coser.gui.others.DoubleField;
+import coser.gui.others.IntegerField;
+import coser.project.CoserProject;
+
+public class BcoMinimalCostReductionDialog extends Dialog implements
+		ActionListener {
+
+	/**
+	 * serialVersionUID
+	 */
+	private static final long serialVersionUID = -8552943019611146346L;
+
+	public static BcoMinimalCostReductionDialog bcoMinimalCostReductionDialog = new BcoMinimalCostReductionDialog();
+
+	/**
+	 * The dialog box frame.
+	 */
+	JFrame dialogBox;
+
+	/**
+	 * The label "Ant counts"
+	 */
+	Label labelAntCounts;
+
+	/**
+	 * The label "Alpha"
+	 */
+	Label labelAlpha;
+
+	/**
+	 * The label "Beta"
+	 */
+	Label labelBeta;
+
+	/**
+	 * The label "ExperimentCounts"
+	 */
+	// Label labelexperimentCounts;
+
+	/**
+	 * The textfield of the ant counts.
+	 */
+	IntegerField textFieldAntCounts;
+
+	/**
+	 * The textfield of the exponent alpha.
+	 */
+	DoubleField textFieldAlpha;
+
+	/**
+	 * The textfield of the exponent beta.
+	 */
+	DoubleField textFieldBeta;
+
+	/**
+	 * The test field of the experiment counts.
+	 */
+	IntegerField textFieldExperimentCounts;
+
+	/**
+	 * The OK button
+	 */
+	Button buttonOK;
+
+	/**
+	 * The Cancel button
+	 */
+	Button buttonCancel;
+
+	/**
+	 * Construct Method
+	 */
+	public BcoMinimalCostReductionDialog() {
+
+		super(GUICommon.mainFrame, "Minimal test cost attribute reduction ACO",
+				true);
+
+		dialogBox = new JFrame(
+				"The Ant Colony to minimal test cost reduct problem");
+		labelAntCounts = new Label("Ant counts");
+		labelAlpha = new Label("Alpha");
+		labelBeta = new Label("Beta");
+		// labelexperimentCounts = new Label("Experiment counts");
+		textFieldAntCounts = new IntegerField("100");
+		textFieldAlpha = new DoubleField("2");
+		textFieldBeta = new DoubleField("2");
+		textFieldExperimentCounts = new IntegerField("100");
+		buttonOK = new Button("Compute");
+		buttonOK.addActionListener(this);
+		DialogCloser dialogCloser = new DialogCloser(this);
+		buttonCancel = new Button("Cancel");
+		buttonCancel.addActionListener(dialogCloser);
+		Button helpButton = new Button(" Help ");
+		helpButton.setSize(20, 10);
+		helpButton.addActionListener(new HelpDialog(
+				"Minimal test cost attribute reduction",
+				"coser/gui/dialog/tmds/BcoMinimalCostReductionDialogHelp.txt"));
+		helpButton.setSize(20, 10);
+
+		Panel centerPanel = new Panel();
+		centerPanel.setLayout(new GridLayout(3, 2));
+
+		centerPanel.add(labelAntCounts);
+		centerPanel.add(textFieldAntCounts);
+		// centerPanel.add(labelexperimentCounts);
+		// centerPanel.add(textFieldExperimentCounts);
+		centerPanel.add(labelAlpha);
+		centerPanel.add(textFieldAlpha); // 信息素的指数参数
+		centerPanel.add(labelBeta);
+		centerPanel.add(textFieldBeta); // 测试代价的指数参数
+
+		Panel okPanel = new Panel();
+		okPanel.add(buttonOK);
+		okPanel.add(buttonCancel);
+		okPanel.add(helpButton);
+
+		setLayout(new BorderLayout());
+		add(BorderLayout.CENTER, centerPanel);
+		add(BorderLayout.SOUTH, okPanel);
+
+		setBackground(GUICommon.MY_COLOR);
+		setLocation(200, 200);
+		setSize(530, 260);
+		addWindowListener(dialogCloser);
+		setVisible(false);
+
+	}// Construct Method
+
+	/**
+	 * The performing action when events appear.
+	 */
+	public void actionPerformed(java.awt.event.ActionEvent ae) {
+		setVisible(false);
+		ProgressDialog.progressDialog
+				.setMessageAndShow("Please wait for a while."
+						+ "\r\nThe execution time depends on the dataset size and the number of experiments."
+						+ "\r\nThe progress is shown in the console.\r\n");
+
+		try {
+			String message = "";
+			int antCounts = Integer.parseInt(textFieldAntCounts.getText()
+					.trim());
+			double alpha = Double.parseDouble(textFieldAlpha.getText().trim());
+			double beta = Double.parseDouble(textFieldBeta.getText().trim());
+			// int experimentCounts =
+			// Integer.parseInt(textFieldExperimentCounts.getText().trim());
+			BcoTimeNominalDecisionSystem currentDecisionSystem = CoserProject.currentProject.currentBcoTmNds;
+			boolean[] currentFeatureSubset = currentDecisionSystem
+					.beeColonyTimeReduction(10, 20, 5, 0.25);
+			// currentDecisionSystem.antColonyTimeConstraintFetureSelection(100);
+			// // 调用约简方法
+			// // System.out.println("创建最小测试代价的蚁群优化算法");
+			System.out.println("蚂蚁数量 = " + antCounts + "  信息素指数 = " + alpha
+					+ "  测试代价指数 = " + beta);
+
+			message = SimpleTool
+					.booleanArrayToAttributeSetString(currentFeatureSubset);
+			message = "Generated by Coser http://grc.fjzs.edu.cn/~fmin, minfanphd@163.com\r\n"
+					+ message;
+			ProgressDialog.progressDialog.setMessageAndShow(message);
+			// System.out.println(tempDecisionSystem);
+		} catch (Exception ee) {
+			ErrorDialog.errorDialog.setMessageAndShow(ee.toString());
+			ProgressDialog.progressDialog.setVisible(false);
+			ee.printStackTrace();
+			return;
+		}// Of try
+	}// actionPerformed
+
+	public static void main(String[] args) {
+		BcoMinimalCostReductionDialog.bcoMinimalCostReductionDialog
+				.setVisible(true);
+	}// main
+
+}// class BcoMinimalCostReductionDialog

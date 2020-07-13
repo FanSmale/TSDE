@@ -1,0 +1,37 @@
+@Author Fan Min 09/01/2011, Zhangzhou, Fujian 363000
+-----Usage-----
+Load a decision system from an arff file and specify cost information. The decision system should contain only nominal attributes.
+
+-----Input-----
+The .arff file: Now coser/data/iris.arff is the default value. And we provide other .arff files under the folder coser/data.
+
+You can choose other .arff file. However, there are a number of notes to make. First, the last attribute should be the decision. Second, if you want to run reduction algorithms, the file containing the set of all reducts should be provided. And the file should have the same file name as the .arff file, with a different suffix, namely .red. For the format of the .red file please refer to our sample files iris.red, zoo.red, etc.
+
+Test-cost lower bound: the lower bound of the test-cost of one attribute. It should be a positive integer. The default value is 1.
+
+Test-cost upper bound: the upper bound of the test-cost. It should be a positive integer. The default value is 100.
+
+Test-cost distribution:
+with the Uniform distribution, any number between the lower and upper bound has the same probability of generation;
+with the Normal distribution, numbers close to the average of the lower and upper bound are more likely to be generated;
+with the Bounded Pareto distribution, numbers close to the lower bound are more likely to be generated.
+Test-cost relationship: Only Independent is supported at this time.
+
+Random mode: 
+with the Psuodo mode, each time we enter the system it generates the same sequence of random numbers. This helps us to repeat experiments with the same test-cost settings.
+with the Real mode, each time the system will generate different sequence of random numbers.
+
+Alpha: It is valid for the Normal and Bounded Pareto distributions. And it decides the shape of respective distribution. Specifically, we let Alpha = 8 for the Normal distribution and Alpha = 2 for the Bounded Pareto distribution.
+
+----Source----
+The source file for this dialog is coser\gui\dialog\bcnds\LoadBcNdsDialog.java.
+
+----Paper or report----
+
+@INPROCEEDINGS{MinZhu11MinimalCost,
+  author = {Fan Min and William Zhu},
+  title = {Minimal cost attribute reduction through backtracking},
+  booktitle = {to appear in DTA},
+  year = {2011},
+  section = {ROUGH-SET}
+}

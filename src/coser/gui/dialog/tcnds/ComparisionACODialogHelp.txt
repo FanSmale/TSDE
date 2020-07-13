@@ -1,0 +1,28 @@
+@Author Zilong Xu 07/09/2012, Zhangzhou, Fujian 363000
+-----Usage-----
+Find a (possibly) minimal test cost reduct of the decision system using the ant colony optimization
+
+-----Input-----
+Ant counts lower bound: the lower bound of the number of ants in an ant colony
+Ant counts upper bound: the upper bound of the number of ants in an ant colony
+Ant counts increment: the increment of the number of ants in an ant colony
+Alpha lower bound: the lower bound of the alpha
+Alpha upper bound: the upper bound of the alpha
+Alpha increment: the increment of the alpha
+Appointed alpha: the fix alpha value
+Experiment counts: the number of experiments
+
+
+----Source----
+The source file for this dialog is coser\gui\dialog\tcnds\ComparisionACODialog.java
+
+----Paper or report----
+@ARTICLE{ZilongXuMTCACO,
+  author = {Zilong Xu, Fan Min and Wiliam Zhu},
+  title = {Ant colony optimizatin to minimal test cost reduction},
+  journal = {},
+  year = {2012},
+  volume = {},
+  pages = {},
+  number = {},
+  section = {}

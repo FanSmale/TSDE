@@ -1,0 +1,21 @@
+@Author Fan Min 08/23/2011, Zhangzhou, Fujian 363000
+-----Usage-----
+Compare the backtrack algorithm with the heuristic one.
+
+-----Input-----
+Lambda: For the heuristic algorithm.
+Number of experiments: Decide different test cost settings. This is equivalently to dealing with a number of different datasets.
+
+
+----Source----
+The source file for this dialog is coser\gui\dialog\run\ErrorRangeLambdaReductionDialog.java.
+
+----Paper or report----
+
+@ARTICLE{MinZhu12tcsdser,
+  author = {Fan Min and William Zhu},
+  title = {Test-cost-sensitive attribute reduction through error range based covering rough set},
+  journal = {Submitted to Information Sciences}
+  year = {2012}
+}
+

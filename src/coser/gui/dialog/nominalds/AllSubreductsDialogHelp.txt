@@ -1,0 +1,19 @@
+@Author Fan Min 07/10/2011, Zhangzhou, Fujian 363000
+-----Usage-----
+Find all sub-reducts using heuristic algorithms.
+
+-----Input-----
+Algorithm: Now only backtrack is supported.
+
+----Source----
+The source file for this dialog is coser\gui\dialog\ds\AllSubreductsDialog.java.
+
+----Paper or report----
+@INPROCEEDINGS{MinZhu11OptimalDynamic,
+  author = {Fan Min and William Zhu},
+  title = {Optimal sub-reducts in the dynamic environment},
+  booktitle = {to appear in IEEE GrC},
+  year = {2011},
+  section = {ROUGH-SET}
+}
+

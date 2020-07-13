@@ -1,0 +1,25 @@
+@Zilong Xu 07/09/2012, Zhangzhou, Fujian 363000
+----Usage----
+Find a(possibly) minimal test cost reduct of the decision system using the ant colony optimization
+
+----Input----
+Ant counts: the number of ants in the ant colony
+Alpha Lower Bound: the lower bound of the parameter alpha
+Alpha Upper Bound: the upper bound of the parameter alpha
+Alpha Step Length: the step length of the parameter alpha
+Number of experiments: the number of experiments
+
+
+-----Source----
+The source file for this dialog is coser\gui\dialog\tcnds\MinTestCostACOMutipleDialog.java
+
+----Paper or report----
+@ARTICLE{ZilongXuMTCACO,
+  author = {Zilong Xu, Fan Min and Wiliam Zhu},
+  title = {Ant colony optimizatin to minimal test cost reduction},
+  journal = {},
+  year = {2012},
+  volume = {},
+  pages = {},
+  number = {},
+  section = {}

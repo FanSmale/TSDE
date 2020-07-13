@@ -1,0 +1,10 @@
+@Author Fan Min 02/02/2012, Zhangzhou, China
+-----Usage-----
+  Compute the entropy given two numbers.
+
+-----Input-----
+
+----Source----
+The source file for this dialog is gui\dialog\edit\EntropyDialog.java.
+
+----Paper or report----

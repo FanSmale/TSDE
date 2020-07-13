@@ -1,0 +1,23 @@
+@Author Fan Min 09/05/2011, Zhangzhou, Fujian 363000
+-----Usage-----
+Minimal average cost reduction.
+
+-----Input-----
+Misclassification cost lower bound: the lower bound of the misclassification. The default value is 100.
+
+Misclassification cost upper bound: the upper bound of the misclassification. The default value is 2000.
+
+Cost step length: the step length of misclassification costs. The default value is 100.
+
+----Source----
+The source file for this dialog is coser\gui\dialog\bcnds\MinimalCostReductionDialog.java.
+
+----Paper or report----
+
+@INPROCEEDINGS{MinZhu11MinimalCost,
+  author = {Fan Min and William Zhu},
+  title = {Minimal cost attribute reduction through backtracking},
+  booktitle = {to appear in DTA},
+  year = {2011},
+  section = {ROUGH-SET}
+}

@@ -1,0 +1,24 @@
+@Jingkuan Li 12/01/2013, Zhangzhou, Fujian 363000
+----Usage----
+Find a(possibly) minimal test cost reduct of the decision system using fast randomized algorithm
+----Input----
+Alpha: the number of per batch
+Beta: the number of population
+Delta: the probability of attributes selected
+Seed: the seed of randoming
+Number of experiments: the number of experiments
+
+
+-----Source----
+The source file for this dialog is coser\gui\dialog\tcnds\MinimalTestCostReductionFRDialog.java
+
+----Paper or report----
+@ARTICLE{JingkuanLiICRTOFR,
+  author = {Jingkuan Li, Fan Min and Wiliam Zhu},
+  title = {Fast Randomized Algorithm for Minimal Test Cost Attribute Reduction},
+  journal = {},
+  year = {2013},
+  volume = {},
+  pages = {},
+  number = {},
+  section = {}

@@ -1,0 +1,21 @@
+@Author HongZhao 08/23/2012, Zhangzhou, Fujian 363000
+-----Usage-----
+Compare two heuristic algorithms.
+
+-----Input-----
+Lambda: For the  Lambda-weighted heuristic algorithm.
+Delta: For the Delta-weighted heuristic algorithm.
+Number of experiments: Decide different test cost settings. This is equivalently to dealing with a number of different datasets.
+
+
+----Source----
+The source file for this dialog is coser\gui\dialog\tcdsndme\NDMETimeComparisonDialog.java.
+
+----Paper or report----
+@ARTICLE{,
+  author = {Hong Zhao, Fan Min and William Zhu},
+  title = {Test-cost-sensitive attribute reduction of data with normal distribution measurement errors},
+  journal = {Submitted to Applied Mathematics & Information Sciences}
+  year = {2012}
+}
+

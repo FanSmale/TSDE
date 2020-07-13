@@ -1,0 +1,20 @@
+@Author Fan Min 01/30/2012, Zhangzhou, Fujian 363000
+-----Usage-----
+Dedicated for the pruning techniques of decision trees.
+
+-----Input-----
+Testing strategy: Use training set or split in two.
+
+Training set percentage.
+
+----Source----
+The source file for this dialog is coser\gui\dialog\bcnds\CostSensitiveDecisionTreePruneDialog.java.
+
+----Paper or report----
+
+@INPROCEEDINGS{MinZhu2012Induction,
+  author = {Fan Min and William Zhu},
+  title = {Induction of cost-time-sensitive decision trees},
+  journal = {submitted to Machine Learning},
+  year = {2011}
+}

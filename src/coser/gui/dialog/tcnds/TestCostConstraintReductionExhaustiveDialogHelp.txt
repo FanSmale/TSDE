@@ -1,0 +1,48 @@
+@Author Fan Min 01/11/2012, Zhangzhou, Fujian 363000
+-----Usage-----
+Find optimal partial reducts of the decision system using exhaustive algorithms.
+
+-----Input-----
+The algorithm.
+  SESRA and SESRA are employed in \cite{MinZhu11Optimal}
+  BASS is employed in \cite{MinZhu11OptimalDynamic}
+  Backtrack is employed in \cite{MinHuZhu12Feature}
+The consistency metric.
+The budget factor.
+  Should be within (0, 1)
+The number of experiments.
+
+Attention:
+When the algorithm is BASS, the consistency metric is always ENTROPY.
+When the algorithm is BACKTRACK, the consistency metric is always POS.
+The Backtrack algorithm only obtain one optimal subreduct.
+This is why sometimes the results of different approaches are not the same.
+
+----Source----
+The source file for this dialog is coser\gui\dialog\run\TestCostConstraintReductionExhaustiveDialog.java.
+
+----Paper or report----
+@INPROCEEDINGS{MinZhu11Optimal,
+  author = {Fan Min and William Zhu},
+  title = {Optimal sub-reducts with test cost constraint},
+  booktitle = {Proceedings of Rough Set and Knowledge Technology},
+  year = {2011},
+  pages = {57--62},
+  series = {LNAI},
+  volume = {6954}
+}
+
+@INPROCEEDINGS{MinZhu11OptimalDynamic,
+  author    = {Fan Min and William Zhu},
+  title     = {Optimal sub-reducts in the dynamic environment},
+  booktitle = {Proceedings of {IEEE} International Conference on Granular Computing},
+  year      = {2011},
+  pages     = {457--462}
+}
+
+@article{MinHuZhu12Feature,
+  author = {Fan Min and Qinghua Hu and William Zhu},
+  title  = {Feature selection with test cost constraint},
+  journal = {submitted to Knowledge-Based Systems},
+  year = {2012}
+}

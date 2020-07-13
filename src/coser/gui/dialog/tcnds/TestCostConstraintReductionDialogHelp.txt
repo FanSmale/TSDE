@@ -1,0 +1,29 @@
+@Author Fan Min 04/07/2011, Zhangzhou, Fujian 363000
+-----Usage-----
+Find a partial reduct of the decision system.
+
+-----Input-----
+The lambda value.
+The budget factor.
+
+----Source----
+The source file for this dialog is coser\gui\dialog\run\TestCostConstraintReductionDialog.java.
+
+----Paper or report----
+@ARTICLE{MinLiu09AHierarchical,
+  author = {Fan Min and Qihe Liu},
+  title = {A hierarchical model for test-cost-sensitive decision systems},
+  journal = {Information Sciences},
+  year = {2009},
+  volume = {179},
+  pages = {2442--2452},
+  number = {14},
+  section = {ROUGH-SET}
+}
+
+@ARTICLE{MinZhu11Test,
+  author = {Fan Min and Huaping He and Yuhua Qian and William Zhu},
+  title = {Attribute reduction with test-cost constraint},
+  journal = {Submitted to RSKT 2011},
+  year = {2011}
+}

@@ -1,0 +1,29 @@
+@Author Jiabin & Fan Min  18/11/2011, Zhangzhou, Fujian 363000
+-----Usage-----
+Find a partial reduct of the decision system.
+
+-----Input-----
+The lambda value.
+The budget factor.
+
+----Source----
+The source file for this dialog is coser\gui\dialog\tcsds\PositiveConstraintReductionDialog.java.
+
+----Paper or report----
+@ARTICLE{MinLiu09AHierarchical,
+  author = {Fan Min and Qihe Liu},
+  title = {A hierarchical model for test-cost-sensitive decision systems},
+  journal = {Information Sciences},
+  year = {2009},
+  volume = {179},
+  pages = {2442--2452},
+  number = {14},
+  section = {ROUGH-SET}
+}
+
+@ARTICLE{LiuMin11Pos,
+  author = {Jiabin and Shujiao Liao and Fan Min and William Zhu},
+  title = {Minimal test cost feature selection with positive region constraint},
+  journal = {JRS 2012},
+  year = {2012}
+}

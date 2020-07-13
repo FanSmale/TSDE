@@ -1,0 +1,10 @@
+@Author Fan Min 08/12/2011, Zhangzhou, Fujian 363000
+-----Usage-----
+Load a decision system from an arff file. The decision system should contain only nominal attributes.
+
+-----Input-----
+The .arff file: Now coser/data/iris.arff is the default value. And we provide other .arff files under the folder coser/data.
+
+You can choose other .arff file. However, there are a number of notes to make. First, the last attribute should be the decision. Second, if you want to run reduction algorithms, the file containing the set of all reducts should be provided. And the file should have the same file name as the .arff file, with a different suffix, namely .red. For the format of the .red file please refer to our sample files iris.red, zoo.red, etc.
+----Source----
+The source file for this dialog is coser\gui\dialog\ds\LoadDecisionSystemDialog.java.

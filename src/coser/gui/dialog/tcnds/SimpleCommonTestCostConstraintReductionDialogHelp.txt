@@ -1,0 +1,11 @@
+@Author Guiying Pan 08/30/2011, Zhangzhou, Fujian 363000
+-----Usage-----
+Find an optimal sub reducts of the decision system using a heuristive algorithm.
+
+-----Input-----
+The lambda value.
+The number of group.
+The budget factor.
+
+----Source----
+The source file for this dialog is coser\gui\dialog\run\SimpleCommonTestCostConstraintReductionDialog.java.

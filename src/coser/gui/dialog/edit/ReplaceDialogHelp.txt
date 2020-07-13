@@ -1,0 +1,12 @@
+@Author Fan Min 03/11/2009, Burlington, Vermont
+-----Usage-----
+  Replace a string in the java source file. It is very useful for source code management. However it is also a dangerous operation. Therefore backup of source files is strongly recommended while many files are processed.
+
+-----Input-----
+  The file containing all source filenames.
+  Old string, new string
+
+----Source----
+The source file for this dialog is gui\dialog\edit\ReplaceDialog.java.
+
+----Paper or report----

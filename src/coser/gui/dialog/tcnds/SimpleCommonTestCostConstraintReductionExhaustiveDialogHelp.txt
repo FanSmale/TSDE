@@ -1,0 +1,10 @@
+@Author Guiying Pan 08/21/2011, Zhangzhou, Fujian 363000
+-----Usage-----
+Find optimal sub reducts of the decision system using exhaustive algorithms.
+
+-----Input-----
+
+The budget factor.
+
+----Source----
+The source file for this dialog is coser\gui\dialog\run\SimpleCommonTestCostConstraintReductionExhaustiveDialog.java.

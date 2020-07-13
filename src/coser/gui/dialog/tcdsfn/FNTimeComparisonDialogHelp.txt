@@ -1,0 +1,22 @@
+@Author Shujiao Liao 1/8/2012, Zhangzhou, Fujian 363000
+-----Usage-----
+Compare the backtrack algorithm with the genetic one.
+
+-----Input-----
+Lambda: For the genetic algorithm.
+Number of experiments: Decide different test cost settings. This is equivalently to dealing with a number of different datasets.
+...
+
+
+----Source----
+The source file for this dialog is coser\gui\dialog\tcsdsnh\NHTimeComparisonDialog.java.
+
+----Paper or report----
+
+@ARTICLE{MinZhu12tcsdser,
+  author = {Shujiao Liao, Fan Min and William Zhu},
+  title = {Minimal-test-cost Reduct Problem on Neighborhood Decision Systems},
+  journal = {}
+  year = {2012}
+}
+

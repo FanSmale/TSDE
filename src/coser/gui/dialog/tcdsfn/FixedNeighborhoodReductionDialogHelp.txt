@@ -1,0 +1,20 @@
+@Author Hong Zhao 06/29/2011, Zhangzhou, Fujian 363000
+-----Usage-----
+Neiborhood Reduction based on RS
+
+-----Input-----
+The .arff file: Now coser/data/irisNormalized.arff is the default value. And we provide other .arff files under the folder coser/data.
+
+You can choose other .arff file. However, there are a number of notes to make. 
+
+
+----Source----
+The source file for this dialog is coser\gui\dialog\tcsdsnh\NeiborhoodReductionDialog.java
+
+----Paper or report----
+@ARTICLE{
+  author = {Hong Zhao, Fan Min},
+  title = {Test-Cost-Sensitive Attribute Reduction Based on Neighborhood Rough Set},
+  journal = {GRC2011},
+  year = {2011}
+}

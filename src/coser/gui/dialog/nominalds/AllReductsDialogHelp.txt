@@ -1,0 +1,20 @@
+@Author Fan Min 04/30/2011, Zhangzhou, Fujian 363000
+-----Usage-----
+Find all reducts using heuristic algorithms.
+
+-----Input-----
+Algorithm: Now only exponential is supported.
+
+
+----Source----
+The source file for this dialog is coser\gui\dialog\ds\AllReductsDialog.java.
+
+----Paper or report----
+@INPROCEEDINGS{MinZhu11Optimal,
+  author = {Fan Min and William Zhu},
+  title = {Optimal partial reducts with test cost constraint},
+  booktitle = {to appear in RSKT},
+  year = {2011},
+  series = {LNAI},
+  section = {ROUGH-SET}
+}

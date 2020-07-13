@@ -1,0 +1,11 @@
+@Author Fan Min 03/11/2009, Burlington, Vermont
+-----Usage-----
+  Search a string in some java source files. This is because that windows does not support searching in .java file.
+
+-----Input-----
+  The file containing all source filenames.
+
+----Source----
+The source file for this dialog is gui\dialog\edit\SearchDialog.java.
+
+----Paper or report----

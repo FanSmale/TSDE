@@ -1,0 +1,23 @@
+@Author Fan Min 08/23/2011, Zhangzhou, Fujian 363000
+-----Usage-----
+Find a (possibly) minimal test reducts of the decision system using a heuristic algorithm.
+
+-----Input-----
+Weighting mode: Unweighting - using information gain directly. Weighting - using weighted information gain.
+Lambda upper bound: The upper bound of the lambda value. There are different settings of lamda, such that we get to know which setting is the best.
+Lambda lower bound: See the upper bound.
+Labda step length: In conjunction with lower and upper bounds.
+Number of experiments: Decide different test cost settings. This is equivalently to dealing with a number of different datasets.
+
+
+----Source----
+The source file for this dialog is coser\gui\dialog\run\ErrorRangeLambdaReductionDialog.java.
+
+----Paper or report----
+
+@ARTICLE{MinZhu12tcsdser,
+  author = {Fan Min and William Zhu},
+  title = {Test-cost-sensitive attribute reduction through error range based covering rough set},
+  journal = {Submitted to Information Sciences}
+  year = {2012}
+}

@@ -1,0 +1,10 @@
+@Author Fan Min 03/03/2011, Zhangzhou, Fujian 363000
+-----Usage-----
+Find a minimal reduct.
+
+-----Input-----
+
+
+----Source----
+The source file for this dialog is coser\gui\dialog\nominalds\MinimalReductDialog.java.
+
